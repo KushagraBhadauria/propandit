@@ -5,7 +5,6 @@ import "./App.css";
 // import SignUp from "./components/SignUp";
 import Footer from "./components/Footer";
 import Carousel from "./components/Carousel";
-import ForTest from "./components/ForTest";
 
 function App() {
   const products = [

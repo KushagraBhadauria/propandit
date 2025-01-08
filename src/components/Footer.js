@@ -1,9 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 import { FaFacebookF } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaTwitter } from "react-icons/fa"; // Corrected the import for Twitter icon
+import React, { useState } from "react";
+import ThemeSelector from "./ThemeSelector";
 
+// Define themes with corresponding classes
+const themes = {
+  Theme1: "bg-gradient-to-r from-[#f4bd7f] to-[#f9e8d3] font-montserrat",
+  Theme2: "bg-gradient-to-r from-[#efcaa2] to-[#f6b156] font-ptsans",
+  Theme3: "bg-gradient-to-r from-[#f4bd7f] to-[#efcfaa] font-robotoSerif",
+};
 
 
 // Footer Container
@@ -15,7 +22,6 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   align-items: center;
 `;
-
 
 // Footer Top Section
 const FooterTop = styled.div`
@@ -69,34 +75,6 @@ const SocialIcons = styled.div`
   }
 `;
 
-// Newsletter Form
-const NewsletterForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-  }
-
-  button {
-    padding: 0.5rem;
-    background-color: #4ecca3;
-    color: #333;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #fff;
-    }
-  }
-`;
-
 // Footer Bottom
 const FooterBottom = styled.div`
   text-align: center;
@@ -105,59 +83,77 @@ const FooterBottom = styled.div`
 `;
 
 const Footer = () => {
+  const [selectedTheme, setSelectedTheme] = useState("Theme1");
+
   return (
-    <FooterContainer>
-      <FooterTop>
-        {/* About Us */}
-        <FooterColumn>
-          <h4>About Us</h4>
-          <p>Discover the best Pandits on our platform, where spirutality meets soul.</p>
-        </FooterColumn>
+    <div className={themes[selectedTheme]}>
+      <FooterContainer>
+        <FooterTop>
+          {/* About Us */}
+          <FooterColumn>
+            <h4>About Us</h4>
+            <p>Discover the best Pandits on our platform, where spirituality meets soul.</p>
+          </FooterColumn>
 
-        {/* Quick Links */}
-        <FooterColumn>
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </FooterColumn>
+          {/* Quick Links */}
+          <FooterColumn>
+            <h4>Quick Links</h4>
+            <ul>
+              <li>
+                <a href="#shop">Shop</a>
+              </li>
+              <li>
+                <a href="#about">About Us</a>
+              </li>
+              <li>
+                <a href="#contact">Contact Us</a>
+              </li>
+              <li>
+                <a href="#faq">FAQ</a>
+              </li>
+            </ul>
+          </FooterColumn>
 
-        {/* Contact Us */}
-        <FooterColumn>
-          <h4>Contact Us</h4>
-          <ul>
-            <li>Email: support@panditpro.com</li>
-            <li>Phone: +91 7021655368</li>
-            <li>Address: Ghansoli, Navi Mumbai, India</li>
-          </ul>
-        </FooterColumn>
+          {/* Contact Us */}
+          <FooterColumn>
+            <h4>Contact Us</h4>
+            <ul>
+              <li>Email: support@panditpro.com</li>
+              <li>Phone: +91 7021655368</li>
+              <li>Address: Ghansoli, Navi Mumbai, India</li>
+            </ul>
+          </FooterColumn>
 
-        {/* Newsletter */}
-        {/* <FooterColumn>
-          <h4>Newsletter</h4>
-          <p>Subscribe on our website to get the latest offers/updates.</p>
-          <NewsletterForm>
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
-          </NewsletterForm>
-        </FooterColumn> */}
-      </FooterTop>
+          {/* Theme Selector */}
+          <FooterColumn>
+        <div className={`${themes[selectedTheme]} min-h-screen`}>
+          {/* Theme Selector */}
+          <ThemeSelector
+            themes={themes}
+            selectedTheme={selectedTheme}
+            onThemeChange={setSelectedTheme}
+          />
+        </div>
+          </FooterColumn>
+        </FooterTop>
 
-      {/* Social Media */}
-      <SocialIcons>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer"><FaFacebookF /></a>
-        <a href="https://twitter.com" target="_blank" rel="noreferrer"><FaXTwitter /></a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer"><FiInstagram /></a>
-      </SocialIcons>
+        {/* Social Media */}
+        <SocialIcons>
+          <a href="https://facebook.com" target="_blank" rel="noreferrer">
+            <FaFacebookF />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer">
+            <FaTwitter />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <FiInstagram />
+          </a>
+        </SocialIcons>
 
-      {/* Footer Bottom */}
-      <FooterBottom>
-        © {new Date().getFullYear()} PanditPro. All rights reserved.
-      </FooterBottom>
-    </FooterContainer>
+        {/* Footer Bottom */}
+        <FooterBottom>© {new Date().getFullYear()} PanditPro. All rights reserved.</FooterBottom>
+      </FooterContainer>
+    </div>
   );
 };
 
