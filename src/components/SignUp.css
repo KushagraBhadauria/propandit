@@ -1,0 +1,86 @@
+.form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .message {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+  }
+  
+  input:focus {
+    border-color: #0072ff;
+  }
+  
+  label span {
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    background: #f9f9f9;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #0072ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit:hover {
+    background: #005bb5;
+  }
+  
+  .signin {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .signin a {
+    color: #0072ff;
+    text-decoration: none;
+  }
+  
+  .signin a:hover {
+    text-decoration: underline;
+  }
+  
